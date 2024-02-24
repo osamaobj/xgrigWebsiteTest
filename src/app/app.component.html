@@ -1,0 +1,51 @@
+<h1 class="mb-4 mt-4"><u><b>Data Table</b></u></h1>
+
+<input style="margin-bottom: 2%;" type="text" placeholder="Search" (keyup)="onSearchEvent($event)">
+
+
+
+<table class="table datatable">
+    <thead>
+        <tr>
+            <th></th>
+            <th scope="col"><b>User ID</b></th>
+            <th scope="col"><b>Post ID</b></th>
+            <th scope="col"><b>Title</b></th>
+            <th scope="col"><b>Body</b></th>
+            <th scope="col"><b>Name</b></th>
+            <th scope="col"><b>User Name</b></th>
+            <th scope="col"><b>Email</b></th>
+            <th scope="col"><b>Address</b></th>
+            <th scope="col"><b>Phone</b></th>
+            <th scope="col"><b>Website</b></th>
+            <th scope="col"><b>Company</b></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of usersData; let i = index">
+            <td> <input type="checkbox"> </td>
+            <td>{{user?.id}}</td>
+            <td>{{1}}</td>
+            <td>{{1}}</td>
+            <td>{{"body"}}</td>
+            <td>{{user?.name}}</td>
+            <td>{{user?.username}}</td>
+            <td>{{user?.email}}</td>
+            <td>{{user?.address?.suite + " " + user?.address?.street + " " +  user?.address?.city}}</td>
+            <td>{{user?.phone}}</td>
+            <td>{{user?.website}}</td>
+            <td>{{user?.company?.name}}</td>
+            <td>
+                <div style="display: flex;">
+                    <button style="background-color: rgb(80, 107, 214); color: white; margin-right: 3%;" type="button" (click)="updateRow(user)">Edit</button>
+                    <button style="background-color: red; color: white;" type="button" (click)="deleteRow(i)">Delete</button>
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+
+<app-detail-component [rowData]="rowData" *ngIf="this.showDetailComponent"></app-detail-component>

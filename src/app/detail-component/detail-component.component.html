@@ -1,0 +1,19 @@
+<h2> <b>{{title}} User</b> </h2>
+
+<form [formGroup]="myform">
+
+    <input type="text" formControlName="name" placeholder="Name"><br><br>
+    <input type="text" formControlName="userName" placeholder="User Name"><br><br>
+    <input type="text" formControlName="email" placeholder="Email"><br><br>
+    <input type="text" formControlName="address" placeholder="Address"><br><br>
+    <input type="text" formControlName="phone" placeholder="Phone"><br><br>
+    <input type="text" formControlName="website" placeholder="Website"><br>
+
+    <button [disabled]="this.myform.valid" style="margin-top: 3%; color: white ; background-color: blue;" type="button"
+        (click)="submitForm()">Add User</button>
+
+    <button [disabled]="this.myform.valid"
+        style="margin-top: 3%; margin-left: 5%; color: white ; background-color: blue;" type="button"
+        (click)="submitForm()">Cancel</button>
+
+</form>
